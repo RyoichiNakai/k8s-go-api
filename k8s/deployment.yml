@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-sample-api 
+  labels:
+    app: go-sample-api
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: go-sample-api
+  template: #作られるPodの定義 先程と同じでいい 
+    metadata:
+      labels:
+        app: go-sample-api
+    spec:
+      containers:
+      - name: go-sample-api
+        image: go-sample-api:dev
